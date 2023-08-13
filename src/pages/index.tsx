@@ -3,6 +3,10 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { CsvUpload } from "@/components/CsvUpload/CsvUpload";
 export default function Home() {
   const [files, setFiles] = useState<File>();
+  const [searchField, setSearchField] = useState<string>();
+  const [positiveTraits, setPositiveTraits] = useState<string>("");
+  const [negativeTraits, setNegativeTraits] = useState<string>("");
+
   return (
     <main>
       <div className="min-h-screen ">
@@ -29,6 +33,8 @@ export default function Home() {
                     <input
                       id="search"
                       name="search"
+                      value={searchField}
+                      onChange={(e) => setSearchField(e.target.value)}
                       className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       placeholder="Search"
                       type="search"
@@ -63,11 +69,13 @@ export default function Home() {
                     />
                   </div>
                   <input
-                    id="search"
-                    name="search"
+                    id="positiveTraits"
+                    name="positiveTraits"
+                    value={positiveTraits}
+                    onChange={(e) => setPositiveTraits(e.target.value)}
                     className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Positive traits"
-                    type="search"
+                    type="text"
                   />
                 </div>
               </div>
@@ -86,11 +94,13 @@ export default function Home() {
                     />
                   </div>
                   <input
-                    id="search"
-                    name="search"
+                    id="negativeTraits"
+                    name="negativeTraits"
+                    value={negativeTraits}
+                    onChange={(e) => setNegativeTraits(e.target.value)}
                     className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Negative traits"
-                    type="search"
+                    type="text"
                   />
                 </div>
               </div>
